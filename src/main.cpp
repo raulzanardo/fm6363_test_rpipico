@@ -76,8 +76,8 @@ uint8_t custom_rgbpins[] = {11, 0, 1, 2, 3, 4, 5}; // CLK, R0, G0, B0, R1, G1, B
 // Fire up the specific PWM driver object as dmd<MATRIX_TYPE, COLOR_DEPTH>
 
 DMD_RGB_FM6363<RGB64x32plainS16, COLOR_4BITS> dmd(mux_list, DMD_PIN_nOE, DMD_PIN_SCLK, custom_rgbpins, DISPLAYS_ACROSS, DISPLAYS_DOWN, ENABLE_DUAL_BUFFER);
-// DMD_RGB_ICN2055<RGB128x64plainS32, COLOR_4BITS> dmd(mux_list, DMD_PIN_nOE, DMD_PIN_SCLK, custom_rgbpins, DISPLAYS_ACROSS, DISPLAYS_DOWN, ENABLE_DUAL_BUFFER);
-// DMD_RGB_FM6373<RGB128x64plainS32, COLOR_4BITS> dmd(mux_list, DMD_PIN_nOE, DMD_PIN_SCLK, custom_rgbpins, DISPLAYS_ACROSS, DISPLAYS_DOWN, ENABLE_DUAL_BUFFER);
+// DMD_RGB_ICN2055 <RGB128x64plainS32, COLOR_4BITS> dmd(mux_list, DMD_PIN_nOE, DMD_PIN_SCLK, custom_rgbpins, DISPLAYS_ACROSS, DISPLAYS_DOWN, ENABLE_DUAL_BUFFER);
+// DMD_RGB_FM6373 <RGB128x64plainS32, COLOR_4BITS> dmd(mux_list, DMD_PIN_nOE, DMD_PIN_SCLK, custom_rgbpins, DISPLAYS_ACROSS, DISPLAYS_DOWN, ENABLE_DUAL_BUFFER);
 // DMD_RGB_FM6353 <RGB128x64plainS32, COLOR_4BITS> dmd(mux_list, DMD_PIN_nOE, DMD_PIN_SCLK, custom_rgbpins, DISPLAYS_ACROSS, DISPLAYS_DOWN, ENABLE_DUAL_BUFFER);
 // DMD_RGB_DP3264<RGB128x64plainS32, COLOR_4BITS> dmd(mux_list, DMD_PIN_nOE, DMD_PIN_SCLK, custom_rgbpins, DISPLAYS_ACROSS, DISPLAYS_DOWN, ENABLE_DUAL_BUFFER);
 
@@ -134,8 +134,6 @@ void setup(void)
 
     // initialize DMD objects
     dmd.init();
-    dmd.clearScreen(true);
-    dmd.swapBuffers(true);
 
     // uncomment to set a multiplexer to SHIFTREG decode type
     // leave commented for 3to8 decoder (default)
@@ -164,7 +162,7 @@ void loop(void)
     int col_cnt = 3; // color count
 
     // text
-    char s[] = "Hello! FM6363 SPWM RGB Matrix!";
+    char s[] = "Привет Ардуино!";
     // transcode message to UTF for use with GFX fonts
     char k[30];
 
